@@ -233,7 +233,10 @@ public class Calculator extends JFrame implements ActionListener {
                 txt.setText((new MathExpression(txttext)).solve());
                 break;
             default:
-                txt.setText(txt.getText() + buttext);
+                if (txttext.matches("[a-zA-Z ]+")) {
+                    txttext = "";
+                }
+                txt.setText(txttext + buttext);
                 break;
         }
         txt.grabFocus();
